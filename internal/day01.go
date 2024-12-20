@@ -1,14 +1,39 @@
 package internal
 
 import (
-	"fmt"
 	"math"
 	"sort"
 	"strconv"
 	"strings"
 )
 
-func SolveDay01(input string) string {
+func SolveDay01PartTwo(input string) string {
+	lines := strings.Split(input, "\n")
+	leftList := make([]int, len(lines))
+	rightList := make([]int, len(lines))
+	rightCounterMap := make(map[int]int)
+
+	for i, line := range lines {
+		pair := strings.Split(line, "   ")
+		if len(pair) == 2 {
+			lVal, _ := strconv.Atoi(pair[0])
+			rVal, _ := strconv.Atoi(pair[1])
+			leftList[i] = lVal
+			rightList[i] = rVal
+			rightCounterMap[rVal]++
+		}
+	}
+
+	result := 0
+
+	for i := 0; i < len(leftList); i++ {
+		result += leftList[i] * rightCounterMap[leftList[i]]
+	}
+
+	return strconv.Itoa(result)
+}
+
+func SolveDay01PartOne(input string) string {
 
 	lines := strings.Split(input, "\n")
 	leftList := make([]int, len(lines))
@@ -23,7 +48,7 @@ func SolveDay01(input string) string {
 		}
 	}
 
-	fmt.Printf("len: %d %d\n", len(leftList), len(rightList))
+	// fmt.Printf("len: %d %d\n", len(leftList), len(rightList))
 
 	sort.Slice(leftList, func(i, j int) bool {
 		return leftList[i] < leftList[j]
