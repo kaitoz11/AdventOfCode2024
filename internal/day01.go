@@ -10,7 +10,6 @@ import (
 func SolveDay01PartTwo(input string) string {
 	lines := strings.Split(input, "\n")
 	leftList := make([]int, len(lines))
-	rightList := make([]int, len(lines))
 	rightCounterMap := make(map[int]int)
 
 	for i, line := range lines {
@@ -19,7 +18,6 @@ func SolveDay01PartTwo(input string) string {
 			lVal, _ := strconv.Atoi(pair[0])
 			rVal, _ := strconv.Atoi(pair[1])
 			leftList[i] = lVal
-			rightList[i] = rVal
 			rightCounterMap[rVal]++
 		}
 	}
