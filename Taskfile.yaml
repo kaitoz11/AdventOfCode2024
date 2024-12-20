@@ -1,0 +1,17 @@
+version: '3'
+
+dotenv:
+  - .env
+
+tasks:
+  day1:
+    description: "Day 1"
+    dir: cmd/day01
+    cmds: 
+      - echo "Using $AOC_SESSION"
+      - go run main.go
+
+  day2:
+    description: "Day 2"
+    dir: cmd/day02
+    cmd: go run main.go
