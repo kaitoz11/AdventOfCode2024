@@ -11,6 +11,6 @@ func main() {
 	aoc := pkg.NewAocService(os.Getenv("AOC_SESSION"))
 	input := aoc.GetInput(2)
 
-	solution := internal.SolveDay02(input)
-	fmt.Printf("result: %s", solution)
+	solution := internal.SolveDay02p1(input)
+	fmt.Printf("Part 1 result: %s", solution) // 236
 }
