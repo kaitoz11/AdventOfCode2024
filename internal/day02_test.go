@@ -36,8 +36,8 @@ func TestSolveDay02p1(t *testing.T) {
 }
 
 func TestSolveDay02p2_1(t *testing.T) {
-	input := "29 30 31 35 37 38 39 41"
-	expected := "1"
+	input := "10 13 12 13 14\n10 11 12 13 14 1\n31 28 27 26 28 24\n58 57 58 56 54"
+	expected := "4"
 	result := internal.SolveDay02p2(input)
 	if result != expected {
 		t.Errorf("Expected %s, got %s", expected, result)
@@ -80,6 +80,16 @@ func TestSolveDay02p2(t *testing.T) {
 	input = `1 10 12 13 14 15`
 	expected = "1"
 	result = internal.SolveDay02p2(input)
+	if result != expected {
+		t.Errorf("Expected %s, got %s", expected, result)
+	}
+}
+
+func TestSolveDay02p2_2(t *testing.T) {
+	input := `11 6 4 2 1`
+
+	expected := "1"
+	result := internal.SolveDay02p2(input)
 	if result != expected {
 		t.Errorf("Expected %s, got %s", expected, result)
 	}

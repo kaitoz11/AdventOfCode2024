@@ -15,5 +15,5 @@ func main() {
 	fmt.Printf("Part 1 result: %s\n", solution) // 236
 
 	solution = internal.SolveDay02p2(input)
-	fmt.Printf("Part 2 result: %s\n", solution) // 336
+	fmt.Printf("Part 2 result: %s\n", solution) // 307
 }
