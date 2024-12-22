@@ -13,4 +13,7 @@ func main() {
 
 	solution := internal.SolveDay03p1(input)
 	fmt.Printf("Part 1 result: %s\n", solution)
+
+	solution = internal.SolveDay03p2(input)
+	fmt.Printf("Part 2 result: %s\n", solution)
 }
