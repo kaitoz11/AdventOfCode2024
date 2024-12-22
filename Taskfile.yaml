@@ -15,3 +15,8 @@ tasks:
     description: "Day 2"
     dir: cmd/day02
     cmd: go run main.go
+
+  day3:
+    description: "Day 2"
+    dir: cmd/day02
+    cmd: go run main.go
