@@ -1,14 +1,16 @@
 package internal
 
 import (
+	"errors"
 	"fmt"
+	"strconv"
 	"strings"
 )
 
 const (
-	argSeparator  = ","
-	bracketOpener = "("
-	bracketCloser = ")"
+	argSeparator  = ','
+	bracketOpener = '('
+	bracketCloser = ')'
 )
 
 type operator string
@@ -28,22 +30,67 @@ func (o operation) Do() (int, error) {
 	case mul:
 		return o.Val1 * o.Val2, nil
 	}
-	return 0, fmt.Errorf("Unknown operator: %s", o.Op)
+	return 0, fmt.Errorf("unknown operator: %s", o.Op)
+}
+
+func getNextNumInput(compilingInput string, endingCondition rune)(int,int,error){
+	index := 0
+	num := 0
+	for i, c := range compilingInput{
+		index = i
+		if c < 48 || c > 57 {
+			if c == endingCondition{
+				break
+			}else{
+				return num,index, errors.New("invalid syntax for number argument")
+			}
+		}
+		num = num*10+ int(c - '0')
+	}
+	return num, index, nil
 }
 
 func SolveDay03p1(input string) string {
 	compilingInput := input
-	OpStack := []operation{}
-	// mulFunc := "mul("
-	// callMul :=
-
+	result := 0
 	for {
 		if compilingInput == "" {
 			break
 		}
+		op := string(mul) + string(bracketOpener)
+		candidateIndex := strings.Index(compilingInput, op)
+		if candidateIndex == -1 {
+			break
+		}
+		compilingInput = compilingInput[candidateIndex+len(op):]
+		num1, endIndex, err := getNextNumInput(compilingInput, argSeparator)
+		if err != nil{
+			// fmt.Println(err)
+			continue
+		}
+		compilingInput = compilingInput[endIndex+1:]
+		
+		num2, endIndex, err := getNextNumInput(compilingInput, bracketCloser)
+		if err != nil{
+			// fmt.Println(err)
+			continue
+		}
+		compilingInput = compilingInput[endIndex+1:]
 
-		strings.Index(compilingInput, "mul(")
+		calculator := operation{
+			Op: mul,
+			Val1: num1,
+			Val2: num2,
+		}
+		r, err:= calculator.Do()
+		if err != nil {
+			// fmt.Println(err)
+			break
+		}
+		// fmt.Printf("---\ncompiling:\n%v\nnum1: %v num2: %v\n",compilingInput, num1, num2)
+		
+		result += r
 	}
 
-	return ""
+	return strconv.Itoa(result)
 }
