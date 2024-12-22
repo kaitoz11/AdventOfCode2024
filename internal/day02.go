@@ -273,9 +273,9 @@ func SolveDay02p2_imdonewiththis(input string) string {
 
 		if isSafe {
 			safeCount++
-			// fmt.Println(line)
+			fmt.Println(line)
 		} else {
-			// fmt.Println(line)
+			fmt.Println(line)
 		}
 
 		fmt.Printf("---\nline: %s\n isSafe: %v\n%v\n", line, isSafe, pairList)
