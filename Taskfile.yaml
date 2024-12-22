@@ -20,3 +20,8 @@ tasks:
     desc: "Day 3"
     dir: cmd/day03
     cmd: go run main.go
+
+  day4:
+    desc: "Day 4"
+    dir: cmd/day04
+    cmd: go run main.go
