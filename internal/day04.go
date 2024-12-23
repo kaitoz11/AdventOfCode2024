@@ -110,3 +110,33 @@ func SolveDay04p1(input string) string {
 
 	return strconv.Itoa(result)
 }
+
+func SolveDay04p2(input string) string {
+	result := 0
+	inputMatrix := strings.Split(input, "\n")
+	height := len(inputMatrix)
+	width := len(inputMatrix[0])
+
+	// 3 . 3
+	// . A .
+	// 2 . 2
+	magic := int('M' + 'S')
+
+	for i := 0; i < height-2; i++ {
+		for j := 0; j < width-2; j++ {
+			isAMiddle := inputMatrix[i+1][j+1] == 'A'
+
+			if !isAMiddle {
+				continue
+			}
+
+			isLGTM := int(inputMatrix[i][j]+inputMatrix[i+2][j+2]) == magic
+			isLGTM = isLGTM && int(inputMatrix[i][j+2]+inputMatrix[i+2][j]) == magic
+			if isLGTM {
+				result++
+			}
+		}
+	}
+
+	return strconv.Itoa(result)
+}
