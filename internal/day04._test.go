@@ -15,8 +15,7 @@ XXAMMXXAMA
 SMSMSASXSS
 SAXAMASAAA
 MAMMMXMMMM
-MXMXAXMASX
-`
+MXMXAXMASX`
 
 	expected := "18"
 	result := internal.SolveDay04p1(input)
