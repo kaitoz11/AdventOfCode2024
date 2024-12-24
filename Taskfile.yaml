@@ -31,3 +31,7 @@ tasks:
     dir: cmd/day05
     cmd: go run main.go
 
+  day6:
+    desc: "Day 6"
+    dir: cmd/day06
+    cmd: go run main.go
