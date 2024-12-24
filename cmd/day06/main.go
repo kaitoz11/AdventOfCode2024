@@ -12,8 +12,8 @@ func main() {
 	input := aoc.GetInput(6)
 
 	solution := internal.SolveDay06p1(input)
-	fmt.Printf("Part 1 result: %s\n", solution)
+	fmt.Printf("Part 1 result: %s\n", solution) // 4973
 
 	solution = internal.SolveDay06p2(input)
-	fmt.Printf("Part 2 result: %s\n", solution)
+	fmt.Printf("Part 2 result: %s\n", solution) // 1482
 }
